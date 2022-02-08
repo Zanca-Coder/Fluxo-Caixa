@@ -4,6 +4,8 @@ class Index extends Controller {
 
     function __construct() {
         parent::__construct();
+        Auth::autentica(['']);
+
     }
     
     function index() {

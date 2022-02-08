@@ -8,14 +8,12 @@ class Logout_Model extends Model
     }
 
     public function logout()
-    {
-        
-            // logout
-            Session::init();
-			Session::destroy();
-			//echo("OK");
-			
-        
+    {        
+        // logout
+        Session::init();
+		Session::destroy();
+		//echo("OK");
+			   
     }
     
 }

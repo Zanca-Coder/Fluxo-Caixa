@@ -67,13 +67,13 @@ function listaLancamento() {
                 var btnEdit = `<a href='javascript:void(0)' onclick='loadData(${reg.sequencia});'><i class="fas fa-edit"></i></a>`;
                 var btnDel = `<a href='javascript:void(0)' onclick='del(${reg.sequencia});'><i class="fas fa-trash"></i></a>`;
                 txt += `<tr>
-                <td>${reg.valor}</td>
-                <td>${reg.data}</td>
-                <td>${reg.tipo_desc}</td>
-                <td>${reg.fluxo_desc}</td>
-                <td>${reg.obs}</td>
-                <td>${btnEdit} ${btnDel}</td>
-                </tr>`;
+                            <td>${reg.valor}</td>
+                            <td>${reg.data}</td>
+                            <td>${reg.tipo_desc}</td>
+                            <td>${reg.fluxo_desc}</td>
+                            <td>${reg.obs}</td>
+                            <td>${btnEdit} ${btnDel}</td>
+                        </tr>`;
             }
             document.querySelector("#lslancamento").innerHTML = txt;
 

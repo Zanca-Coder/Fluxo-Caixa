@@ -6,7 +6,7 @@ class Tipo_Lancamentos extends Controller
     function __construct()
     {
         parent::__construct();
-        //Auth::autentica();
+        Auth::autentica();
         $this->view->js = array('tipo_lancamentos/tipo_lancamento.js');
     }
 

@@ -7,7 +7,7 @@ class Lancamentos_Model extends Model {
     }
     
 	public function listaLancamento() 
-    {  
+    {    
         $sql='SELECT
                 t2.descricao as tipo_desc,
                 t.descricao as fluxo_desc,
@@ -24,7 +24,7 @@ class Lancamentos_Model extends Model {
             join tipolancamento t2 on
                 t2.sequencia = l.tipo';
         $result=$this->db->select($sql);	
-		echo(json_encode($result));
+		 echo(json_encode($result));
     }
 
     public function selTipFlux()

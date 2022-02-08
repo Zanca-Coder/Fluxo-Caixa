@@ -5,27 +5,36 @@ class Login_Model extends Model
     public function __construct()
     {
         parent::__construct();
+        // logout
+        Session::init();
+        Session::destroy();
     }
 
     public function ver()
     {
-		$dados=array(':cpf' => $_POST['txtcpf'],':senha' => $_POST['txtsenha']);
-        $result = $this->db->select("SELECT cpf,nome FROM dbclientes.cliente WHERE 
-                cpf = :cpf AND senha = sha2(:senha,256)",$dados);
-                
+        $dados = array(':nome' => $_POST['txtNome'], ':senha' => $_POST['txtSenha']);
+        $result = $this->db->select("SELECT
+                                        *
+                                    from
+                                        usuario
+                                    join nivelusuario on
+                                        usuario.nivel = nivelusuario.codigo
+                                    where
+                                        nome = :nome
+                                        and senha = :senha;", $dados);
+
         $count = count($result);
 
         if ($count > 0) {
             // login
             Session::init();
             Session::set('nome', $result[0]->nome);
+            Session::set('id', $result[0]->id);
+            Session::set('nivel', $result);
             Session::set('logado', true);
-            Session::set('cpf', $result[0]->cpf);
-            echo("OK");
+            echo ("OK");
         } else {
-            echo("Dados Incorretos.");
+            echo ("Dados Incorretos.");
         }
-        
-    }
-    
+    }   
 }
